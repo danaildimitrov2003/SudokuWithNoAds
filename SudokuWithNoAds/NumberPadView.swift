@@ -19,7 +19,6 @@ struct NumberPadView: View {
                         .font(.largeTitle)
                         .frame(width: 35, height: 35)
                 }
-                //.padding(.horizontal, 5)
                 .opacity(completedNumbers.contains(number) ? 0 : 1)
                 .disabled(completedNumbers.contains(number))
             }

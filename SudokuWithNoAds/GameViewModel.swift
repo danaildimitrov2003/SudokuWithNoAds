@@ -62,7 +62,7 @@ class GameViewModel: ObservableObject {
         self.highlightedNumber = nil
         self.impossibleCells = []
         self.currentScore = 0
-        updateCompletedNumbers()
+        self.completedNumbers = []
         gamesPlayed += 1
         startTimer()
     }
