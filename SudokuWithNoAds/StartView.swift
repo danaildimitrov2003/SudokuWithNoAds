@@ -30,15 +30,17 @@ struct StartView: View {
                 .padding()
 
                 ForEach(Difficulty.allCases) { difficulty in
-                    Button(difficulty.rawValue) {
+                    Button {
                         selectedDifficulty = difficulty
+                    } label: {
+                        Text(difficulty.rawValue)
+                            .font(.title2)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
-                    .font(.title2)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
                 }
             }
             .padding()
