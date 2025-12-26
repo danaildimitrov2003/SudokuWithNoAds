@@ -24,8 +24,8 @@ enum Difficulty: String, CaseIterable, Identifiable {
         case .normal: return 40
         case .hard: return 50
         case .extreme: return 55
-        case .impossible: return 60
-        case .youCannotDoThis: return 70
+        case .impossible: return 57
+        case .youCannotDoThis: return 60
         }
     }
 

@@ -24,10 +24,10 @@ struct CellView: View {
                 Group {
                     if isIncorrect {
                         Color.red.opacity(0.5)
-                    } else if isSelected {
-                        Color.yellow.opacity(0.5)
                     } else if isHighlighted {
                         Color.blue.opacity(0.3)
+                    } else if isSelected {
+                        Color.yellow.opacity(0.5)
                     } else if isImpossible {
                         Color.gray.opacity(0.3)
                     } else {

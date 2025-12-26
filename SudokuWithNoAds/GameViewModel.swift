@@ -63,6 +63,7 @@ class GameViewModel: ObservableObject {
         self.impossibleCells = []
         self.currentScore = 0
         self.completedNumbers = []
+        updateCompletedNumbers()
         gamesPlayed += 1
         startTimer()
     }
@@ -81,7 +82,11 @@ class GameViewModel: ObservableObject {
     }
 
     func enterNumber(_ number: Int) {
-        guard let selectedCell = selectedCell else { return }
+        guard let selectedCell = selectedCell,
+              !givenGrid[selectedCell.row][selectedCell.col],
+              grid[selectedCell.row][selectedCell.col] != number
+        else { return }
+
         let coordinate = Coordinate(row: selectedCell.row, col: selectedCell.col)
         
         if solution[selectedCell.row][selectedCell.col] == number {

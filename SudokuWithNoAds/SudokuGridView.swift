@@ -29,14 +29,40 @@ struct SudokuGridView: View {
                             isHighlighted: grid[row][col] != 0 && grid[row][col] == highlightedNumber,
                             isImpossible: grid[row][col] == 0 && impossibleCells.contains(Coordinate(row: row, col: col))
                         )
+                        .overlay(
+                            // Top border
+                            Rectangle()
+                                .frame(height: (row % 3 == 0) ? 2 : 0.5)
+                                .foregroundColor(.black),
+                            alignment: .top
+                        )
+                        .overlay(
+                            // Left border
+                            Rectangle()
+                                .frame(width: (col % 3 == 0) ? 2 : 0.5)
+                                .foregroundColor(.black),
+                            alignment: .leading
+                        )
+                        .overlay(
+                            // Bottom border
+                            Rectangle()
+                                .frame(height: (row == 8) ? 2 : 0.5)
+                                .foregroundColor(.black),
+                            alignment: .bottom
+                        )
+                        .overlay(
+                            // Right border
+                            Rectangle()
+                                .frame(width: (col == 8) ? 2 : 0.5)
+                                .foregroundColor(.black),
+                            alignment: .trailing
+                        )
                         .onTapGesture {
                             onSelect(row, col)
                         }
-                        .border(Color.black, width: 0.5)
                     }
                 }
             }
         }
-        .border(Color.black, width: 2)
     }
 }
