@@ -30,7 +30,12 @@ class GameViewModel: ObservableObject {
     @Published var difficulty: Difficulty
     @Published var currentScore = 0
     @Published var completedNumbers: Set<Int> = []
-    
+    var formattedTime: String {
+        let minutes = time / 60
+        let seconds = time % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+
     @AppStorage("highScore") var highScore = 0
     @AppStorage("gamesPlayed") var gamesPlayed = 0
     @AppStorage("gamesWon") var gamesWon = 0

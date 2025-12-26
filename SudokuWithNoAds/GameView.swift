@@ -23,7 +23,7 @@ struct GameView: View {
                 HStack {
                     Text("Lives: \(viewModel.lives)")
                     Spacer()
-                    Text("Time: \(viewModel.time)")
+                    Text("Time: \(viewModel.formattedTime)")
                 }
                 HStack {
                     Text("Score: \(viewModel.currentScore)")
@@ -62,7 +62,7 @@ struct GameView: View {
             Button("New Game", action: viewModel.startNewGame)
             Button("Main Menu") { dismiss() }
         } message: {
-            Text("Congratulations! You solved the puzzle in \(viewModel.time) seconds.")
+            Text("Congratulations! You solved the puzzle in \(viewModel.formattedTime).")
         }
     }
 }
